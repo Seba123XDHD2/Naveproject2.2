@@ -204,6 +204,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1292816857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7960704065721531637, guid: d21b19dfb44ea834086cf65232a11085,
+    type: 3}
+  m_PrefabInstance: {fileID: 7960704066497981559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1292816858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffdb4398ff66b944190dc2c92df12944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 1220942966920498111, guid: b4614969198b222459468034578472fa,
+    type: 3}
+  poolSize: 10
+  hideFlag: 1
+  launchSpeed: 2
+--- !u!114 &1292816859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33a21812ea90f8478735166a4dd83bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &1292816860
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13740394, y: -0.44380146}
+  m_Size: {x: 8.0244255, y: 8.639332}
+  m_Direction: 0
+--- !u!114 &1292816861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bbc0117bd0f634392954d7ee426e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseValue: 3
+  isDead: 0
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1292816862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcb8f0ccf8cd1e4d86c1c9ed710babb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1001 &7960704066497981559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,12 +295,12 @@ PrefabInstance:
     - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.139
       objectReference: {fileID: 0}
     - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.324
       objectReference: {fileID: 0}
     - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
         type: 3}
@@ -266,9 +347,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.84516096
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.78500646
+      objectReference: {fileID: 0}
     - target: {fileID: 7960704065721531637, guid: d21b19dfb44ea834086cf65232a11085,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960704065721531637, guid: d21b19dfb44ea834086cf65232a11085,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
