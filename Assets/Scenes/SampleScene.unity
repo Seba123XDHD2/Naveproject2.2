@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 12.935938
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 5.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -271,7 +271,18 @@ MonoBehaviour:
   isDead: 0
   OnDeadEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1292816857}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1292816862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +296,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &1292816866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292816857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a8baa568271bb49aaf4137b8a5bf0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoBeginOnStart: 1
+  waitTime: 1
+  timerLoopType: 0
+  loopCount: 0
+  OnLoopFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1292816858}
+        m_MethodName: ShootBulletUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7960704066497981559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +333,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4530020280714409008, guid: d21b19dfb44ea834086cf65232a11085,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7960704065721531635, guid: d21b19dfb44ea834086cf65232a11085,
         type: 3}
       propertyPath: m_LocalPosition.x
