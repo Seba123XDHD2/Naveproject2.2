@@ -412,7 +412,7 @@ MonoBehaviour:
     type: 3}
   poolSize: 10
   hideFlag: 1
-  launchSpeed: 2
+  launchSpeed: 10
 --- !u!114 &1292816859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoBeginOnStart: 1
-  waitTime: 1
+  waitTime: 0.1
   timerLoopType: 0
   loopCount: 0
   OnLoopFinish:
