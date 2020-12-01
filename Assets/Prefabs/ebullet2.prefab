@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7543036269644812828}
   - component: {fileID: -3668245476512323322}
   - component: {fileID: 4906312831430079584}
-  - component: {fileID: 4998543978425957232}
   - component: {fileID: 4272145785689522456}
+  - component: {fileID: -8763021431950535249}
   m_Layer: 0
   m_Name: ebullet2
   m_TagString: Untagged
@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220942966920498111}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7083674, w: 0.7058439}
   m_LocalPosition: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.204}
 --- !u!212 &7543036269644812828
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -122,31 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4998543978425957232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220942966920498111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6eeb4966b0943d4f85cdccd115d0675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  projectileSpeed: 2
-  projectileDamage: 1
-  targetTag: Enemy
-  targetMethod: GetDamage
 --- !u!114 &4272145785689522456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,4 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d304bd0d0a3037442bb07fee382ff549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceTargetTag: Block
+  bounceTargetTag: Enemy
+--- !u!114 &-8763021431950535249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220942966920498111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9507ef971033b2240a010a6cb5fce8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5

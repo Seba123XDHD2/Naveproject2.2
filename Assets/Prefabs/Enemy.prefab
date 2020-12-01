@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2271832281093618550}
   - component: {fileID: 7938914546297662065}
-  - component: {fileID: -6743759954639836563}
   - component: {fileID: 4234664591092230006}
   - component: {fileID: 2322842820698351060}
-  - component: {fileID: 2547823219580695145}
-  - component: {fileID: 1650369504176224922}
+  - component: {fileID: -2184745830870821221}
+  - component: {fileID: 6488291963641479873}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0d978847718be1a46a89c755fb4b1b9a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,19 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6743759954639836563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362188689199046524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd57636de72b88f459cf56621bc63b40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startRotation: {x: 0, y: 0, z: 180}
 --- !u!50 &4234664591092230006
 Rigidbody2D:
   serializedVersion: 4
@@ -137,18 +123,18 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -6743759954639836563}
-        m_MethodName: Destroyenemy
-        m_Mode: 1
+      - m_Target: {fileID: 2322842820698351060}
+        m_MethodName: GetDamage
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2547823219580695145
+--- !u!114 &-2184745830870821221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,16 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362188689199046524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec14751f006a5347989a32620d1de62, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aecdce122d073348b1ede0f3cc63163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.25
-  pathType: 1
-  waypointsPath:
-  - {x: 0, y: 0}
-  - {x: 0, y: -36.88}
---- !u!70 &1650369504176224922
-CapsuleCollider2D:
+  enemyspeed: 5
+--- !u!61 &6488291963641479873
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,9 +157,19 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.0465118}
-  m_Direction: 0
+  m_Offset: {x: 0.0087924, y: -0.014588445}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.0465117}
+    newSize: {x: 1, y: 1.0465117}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0175848, y: 1.062721}
+  m_EdgeRadius: 0
