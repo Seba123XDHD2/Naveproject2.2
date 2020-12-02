@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2271832281093618550}
   - component: {fileID: 7938914546297662065}
   - component: {fileID: 4234664591092230006}
+  - component: {fileID: 3625935123147410607}
   - component: {fileID: 2322842820698351060}
   - component: {fileID: -2184745830870821221}
   - component: {fileID: 6488291963641479873}
+  - component: {fileID: 6735354021829716631}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -106,6 +108,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3625935123147410607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362188689199046524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3585c5845a4bf1e47864b5d71a44611d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2322842820698351060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,14 +137,25 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2322842820698351060}
-        m_MethodName: GetDamage
-        m_Mode: 4
+      - m_Target: {fileID: 3625935123147410607}
+        m_MethodName: Destroyenemy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6735354021829716631}
+        m_MethodName: AddScoreCustomValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -173,3 +198,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0175848, y: 1.062721}
   m_EdgeRadius: 0
+--- !u!114 &6735354021829716631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362188689199046524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ef78dd225a9a64ea1651cafec80a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseScore: 1

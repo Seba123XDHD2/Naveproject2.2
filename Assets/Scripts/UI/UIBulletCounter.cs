@@ -10,6 +10,8 @@ public class UIBulletCounter : SerializedMonoBehaviour
     int maxBullets;
     public Color normalColor=Color.blue;
     public Color dangerColor = Color.red;
+    public Vector2 normalSize = Vector2.one;
+    public Vector2 emptySize = new Vector2(1.5f,1.5f);
 
     private void OnDisable()
     {
@@ -39,11 +41,14 @@ public class UIBulletCounter : SerializedMonoBehaviour
     {
         bulletCountText.SetText(bulletCount.ToString());
         bulletCountText.transform.localScale = Vector2.one;
-        bulletCountText.transform.DOPunchScale(Vector2.one * 1.1f, 0.2f);
+
+
         percent = (float)(bulletCount*1.0) / (float)maxBullets*1.0f ;
 
         bulletCountText.color = Color.Lerp(  dangerColor, normalColor,percent);
 
+        
+            bulletCountText.transform.DOPunchScale(Vector2.Lerp(emptySize,normalSize,percent), 0.1f);
 
     }
 }
