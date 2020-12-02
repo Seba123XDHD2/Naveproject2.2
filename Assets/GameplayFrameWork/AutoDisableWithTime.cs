@@ -10,8 +10,11 @@ public class AutoDisableWithTime : MonoBehaviour
     {
         StartCoroutine(AutoDisable());
     }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 
-   
     IEnumerator AutoDisable()
     {
         yield return new WaitForSeconds(autoDisableTime);

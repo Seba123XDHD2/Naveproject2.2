@@ -25,6 +25,6 @@ public class Bulletmove : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         other.gameObject.SendMessage("OnRecibirDano", damage, SendMessageOptions.DontRequireReceiver);
-        GameObject.Destroy(gameObject);
+        
     }
 }

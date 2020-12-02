@@ -6,6 +6,9 @@ using Sirenix.OdinInspector.Editor.Drawers;
 using UnityEngine.Events;
 using System;
 using Sirenix.OdinInspector.Editor;
+using DG.Tweening;
+
+public enum EProjectileBehaviour { NoPath,FollowPath}
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectilecomponent : SerializedMonoBehaviour
@@ -16,18 +19,64 @@ public class Projectilecomponent : SerializedMonoBehaviour
     public float projectileDamage = 1f;
     public string targetTag;
     public string targetMethod = "GetDamage";
+    public Vector2 launchDirection = Vector2.up;
 
-  //  public UnityEventOnTriggerEnter2D TriggerEnter2D;
-  //  public UnityEventOnCollisionEnter2D CollisionEnter2D;
+
+
+    [BoxGroup("EProjectileBehaviour")]
+    public EProjectileBehaviour defaulBehaviour = EProjectileBehaviour.NoPath;
+    public bool deactivateOnHit = false;
+    [BoxGroup("EProjectileBehaviour/FollowPath")]
+    public PathType pathType = PathType.CatmullRom;
+    public Ease pathFollowEase = Ease.Linear;
+    [FoldoutGroup("LoopType", expanded: false)]
+    public LoopType defaultLoopType = LoopType.Restart;
+    [FoldoutGroup("LoopType", expanded: false)]
+    public int defaultLoopCount =0;
+    [BoxGroup("EProjectileBehaviour/FollowPath/Waypoints")]
+    public List<Vector2> waypointsPath;
+    private Vector2[] finalPath;
+
+
+    private void OnDrawGizmosSelected()
+    {
+        if(defaulBehaviour==EProjectileBehaviour.FollowPath)
+        {
+         Vector2 playerPosTmp = transform.position;
+
+                for (int i = 1; i < waypointsPath.Count; i++)
+                {
+
+                    Gizmos.DrawLine(playerPosTmp + waypointsPath[i - 1], playerPosTmp + waypointsPath[i]);
+                }
+        }
+       
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void OnEnable()
+    {
+   
+    }
+    private void OnDisable()
+    {
+        ResetTweens();
+
+    }
+    void ResetTweens()
+    {
+        DOTween.Kill(rb);
+        DOTween.Kill(gameObject);
+        DOTween.ClearCachedTweens();
+    }
     public void LaunchProjectile( )
     {
         
-        SetVelocity(transform.forward * projectileSpeed);
+        SetVelocity(launchDirection * projectileSpeed);
     }
     public void LaunchProjectile(Vector2 LaunchDirection)
     {
@@ -41,8 +90,10 @@ public class Projectilecomponent : SerializedMonoBehaviour
     }
     public void LaunchProjectile(float LaunchSpeed=2f)
     {
-        projectileSpeed = LaunchSpeed;
-        SetVelocity(transform.forward * projectileSpeed);
+        
+            SetVelocity(launchDirection * projectileSpeed); 
+ 
+       
     }
     public void SetVelocity(Vector2 velocity)
     {
@@ -53,7 +104,7 @@ public class Projectilecomponent : SerializedMonoBehaviour
       
         if(collision.CompareTag(targetTag)==true)
         {
-            ApplyDamageTotarget(collision.gameObject);
+        ApplyDamageTotarget(collision.gameObject);
         }
 
     }
@@ -64,12 +115,56 @@ public class Projectilecomponent : SerializedMonoBehaviour
         {
             ApplyDamageTotarget(collision.gameObject);
         }
+
+        
+     
+           
+       
     }
 
     void ApplyDamageTotarget(GameObject targetGameObject)
     {
         targetGameObject.SendMessage(targetMethod, projectileDamage,SendMessageOptions.DontRequireReceiver);
 
+        if(deactivateOnHit)
+        gameObject.SetActive(false);
+       
+    }
+
+  
+    ///*Specif for Follow Path behaviour*///
+    void InitializaPath()
+    {
+        ResetTweens();
+        Vector2 playerPosTmp = transform.position;
+        finalPath = new Vector2[waypointsPath.Count];
+
+        for (int i = 0; i < waypointsPath.Count; i++)
+        {
+            finalPath[i] = playerPosTmp + waypointsPath[i];
+        }
+    }
+    public void LaunchProjectileWithPath( )
+    {
+        LaunchProjectileWithPath(projectileSpeed);
+    }
+    public void LaunchProjectileWithPath(float LaunchSpeed = 2f)
+    {
+       
+        projectileSpeed = LaunchSpeed;
+        FollowPath();
+    }
+    public void FollowPath()
+    {
+        InitializaPath();
+      float distance = Vector3.Distance(finalPath[0], finalPath[finalPath.Length-1]);
+        rb.DOPath(finalPath, 1 / (projectileSpeed*0.1f)  , pathType).SetEase(pathFollowEase).OnComplete(PathFinish).SetLoops(defaultLoopCount, defaultLoopType);
+
+     // rb.DOPath(finalPath, 1 / projectileSpeed, pathType) .OnComplete(PathFinish);
+    }
+
+    void PathFinish()
+    {
         gameObject.SetActive(false);
     }
 

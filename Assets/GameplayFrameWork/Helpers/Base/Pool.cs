@@ -12,20 +12,24 @@ using Sirenix.OdinInspector;
     public GameObject objectPrefab;
 
     public int poolSize = 10;
-
+    public bool IsSingleton;
     public HideFlags hideFlag = HideFlags.HideInHierarchy;
     List<GameObject> pool = new List<GameObject>();
 
     GameObject tmpObj;
     protected virtual void Awake()
     {
+        if(IsSingleton)
+        {
             if (Instance != null)
-            {
-                Debug.LogError("A instance already exists");
-                Destroy(this); //Or GameObject as appropriate
-                return;
-            }
-        Instance = this as T;
+             {
+                        Debug.LogError("A instance already exists");
+                        Destroy(this); //Or GameObject as appropriate
+                        return;
+             }
+                Instance = this as T;
+        }
+            
 
         Initialize();
 

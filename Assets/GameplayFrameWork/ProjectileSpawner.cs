@@ -11,7 +11,13 @@ public class ProjectileSpawner : Pool<ProjectileSpawner>
     public void SpawnProjectile()
     {
       GameObject projectile=     GetPooledObject(transform.position);
-        projectile.GetComponent<Projectilecomponent>()?.LaunchProjectile(transform.right,projectileSpeed);
+        projectile.GetComponent<Projectilecomponent>()?.LaunchProjectile();
+    }
+
+    public void SpawnProjectileToDirection(Vector2 direction )
+    {
+        GameObject projectile = GetPooledObject(transform.position);
+        projectile.GetComponent<Projectilecomponent>()?.LaunchProjectile(direction, projectileSpeed);
     }
 
 }

@@ -39,7 +39,7 @@ public class HealthAttribute : MonoBehaviour
         }
     }
 
-    void SetDead()
+    public void SetDead()
     {
         isDead = true;
         OnDeadEvent.Invoke();

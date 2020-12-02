@@ -9,4 +9,10 @@ public class SpawnerComponent : Pool<SpawnerComponent>
         GetPooledObject(transform.position);
     }
 
+    public void SpawnObjectAndThenExecute(string MethodName)
+    {
+        GetPooledObject(transform.position).SendMessage(MethodName, SendMessageOptions.DontRequireReceiver);
+    }
+    
+
 }
