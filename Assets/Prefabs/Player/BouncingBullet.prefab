@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 3675355599803740405}
   - component: {fileID: 7543036269644812828}
   - component: {fileID: 4906312831430079584}
-  - component: {fileID: 4272145785689522456}
   - component: {fileID: 855552236085815373}
   - component: {fileID: 5449677770436557876}
   - component: {fileID: 6624990488298987988}
   m_Layer: 0
   m_Name: BouncingBullet
-  m_TagString: Untagged
+  m_TagString: BulletPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,20 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!114 &4272145785689522456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220942966920498111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d304bd0d0a3037442bb07fee382ff549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceTargetTag: []
+  m_Constraints: 0
 --- !u!114 &855552236085815373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +127,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  projectileSpeed: 5
+  projectileSpeed: 8
   projectileDamage: 1
   targetTag: Enemy
   targetMethod: GetDamage
@@ -165,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d304bd0d0a3037442bb07fee382ff549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceTargetTag: []
+  ignoreTag:
+  - Player
 --- !u!58 &6624990488298987988
 CircleCollider2D:
   m_ObjectHideFlags: 0
