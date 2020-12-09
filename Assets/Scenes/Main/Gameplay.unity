@@ -270,52 +270,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &532233718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7960704065721531637, guid: d21b19dfb44ea834086cf65232a11085,
-    type: 3}
-  m_PrefabInstance: {fileID: 917357140}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &532233719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532233718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 737bb9a8773160f42964e87e0398424f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &532233728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532233718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bbc0117bd0f634392954d7ee426e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseValue: 3
-  isDead: 0
-  OnDeadEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532233719}
-        m_MethodName: destroyShip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &605474100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,6 +5852,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2070081905}
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayerDead
+      objectReference: {fileID: 0}
+    - target: {fileID: 532233728, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 917357142, guid: d21b19dfb44ea834086cf65232a11085, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -6365,6 +6343,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319489831}
   m_CullTransparentMesh: 0
+--- !u!1 &1357143184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357143186}
+  - component: {fileID: 1357143187}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1357143186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357143184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9, y: -37.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357143187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357143184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38bf1637c76fdb46b2b41a99cc151b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 7960704065721531637, guid: d21b19dfb44ea834086cf65232a11085,
+    type: 3}
+  poolSize: 10
+  IsSingleton: 0
+  hideFlag: 1
+  pool: []
 --- !u!1 &1477761193
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,6 +6823,7 @@ MonoBehaviour:
   TargetWinCount: 1
   currentWinCount: 0
   score: 0
+  lives: 3
   gameStates: 5
   OnGameOver:
     m_PersistentCalls:
@@ -6806,6 +6834,20 @@ MonoBehaviour:
   OnRoundBegin:
     m_PersistentCalls:
       m_Calls: []
+  OnPlayerRespawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1357143187}
+        m_MethodName: SpawnObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2070081906
 Transform:
   m_ObjectHideFlags: 0

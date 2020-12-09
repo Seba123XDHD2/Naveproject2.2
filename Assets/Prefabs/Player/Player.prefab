@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 917357144}
   - component: {fileID: 2233740445510428234}
   - component: {fileID: 2114398894210236288}
+  - component: {fileID: 532233719}
+  - component: {fileID: 532233728}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -301,6 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 30
+  keepInsideCameraFrustrum: 1
+  cameraBoundsOffset: 1
 --- !u!114 &917357144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +322,7 @@ MonoBehaviour:
   poolSize: 10
   IsSingleton: 0
   hideFlag: 0
+  pool: []
   projectileSpeed: 2
 --- !u!70 &2233740445510428234
 CapsuleCollider2D:
@@ -347,3 +352,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c4c58a4fe6de645b116d701ee996aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &532233719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960704065721531637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737bb9a8773160f42964e87e0398424f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &532233728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960704065721531637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87bbc0117bd0f634392954d7ee426e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseValue: 3
+  isDead: 0
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 532233719}
+        m_MethodName: destroyShip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
