@@ -18,6 +18,6 @@ public class MenuStart : MonoBehaviour
     }
     public void CargarScene()
     {
-        SceneManager.LoadScene("space war");
+        SceneManager.LoadScene("Gameplay");
     }
 }

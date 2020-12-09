@@ -14,7 +14,8 @@ using Sirenix.OdinInspector;
     public int poolSize = 10;
     public bool IsSingleton;
     public HideFlags hideFlag = HideFlags.HideInHierarchy;
-    List<GameObject> pool = new List<GameObject>();
+    [ReadOnly]
+   public List<GameObject> pool = new List<GameObject>();
 
     GameObject tmpObj;
     protected virtual void Awake()
@@ -81,13 +82,20 @@ using Sirenix.OdinInspector;
         return  GetPooledObject(Position).GetComponent<T>();
 
     }
+
+ 
+
     public GameObject GetPooledObject()
     {
         tmpObj = null;
 
         for (int i = 0; i < pool.Count; i++)
         {
-
+            if(pool[i]==null)
+            {
+                Debug.Log("pooled object was destroyed for " + gameObject);
+                continue;
+            }
             if (!pool[i].activeInHierarchy)
             {
                 tmpObj = pool[i];

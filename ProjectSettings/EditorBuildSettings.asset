@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main/MenuPrincipal.unity
+    guid: 227a34a952ceb0c4ea0f362c22fcb465
   - enabled: 1
-    path: Assets/Scenes/space war.unity
-    guid: 266b7ef13f600174ea6b0561c2d170d8
+    path: Assets/Scenes/Main/Gameplay.unity
+    guid: 0155bcd97c21b06499f508a889d181a0
   m_configObjects: {}
