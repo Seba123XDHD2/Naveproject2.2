@@ -20,10 +20,14 @@ namespace Taller
         [Header("Score Units")]
         public int score;
 
+        [Header("Score Units")]
+        public int lives;
+
         [Header("Game events")]
         public EGameStates gameStates=EGameStates.GAMEPLAY;
 
         public UnityEvent OnGameOver, OnRoundOver, OnRoundBegin;
+        public UnityEvent OnPlayerRespawn;
 
 
         public static event FNotify_1Params<int> OnScoreChange;
@@ -83,6 +87,18 @@ namespace Taller
             {
                 SetRoundOver();
             }
+        }
+
+        public void PlayerDead()
+        {
+            lives--;
+            if(lives<=0)
+            {
+                SetGameOver();
+                return;
+            }
+            OnPlayerRespawn.Invoke();
+
         }
     }
 }
