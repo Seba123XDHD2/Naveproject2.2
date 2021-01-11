@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 3484319767791531427}
   - component: {fileID: 9118509914091111071}
   - component: {fileID: 1041257264502466651}
+  - component: {fileID: 8005967973324746215}
+  - component: {fileID: 8078015813184283108}
   m_Layer: 12
   m_Name: EnemyShiptBat
   m_TagString: Enemy
@@ -225,3 +227,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8005967973324746215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181438665845295835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d441e1f3839285e4d832de744a1184bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 6903277477774521900, guid: 91f82dc2d62bac342bb43e4c71bfa122,
+    type: 3}
+  poolSize: 10
+  IsSingleton: 0
+  hideFlag: 1
+  pool: []
+  projectileSpeed: 2
+--- !u!114 &8078015813184283108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8181438665845295835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a8baa568271bb49aaf4137b8a5bf0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoBeginOnStart: 1
+  waitTime: 1
+  timerLoopType: 0
+  loopCount: 0
+  OnLoopFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8005967973324746215}
+        m_MethodName: SpawnProjectile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
